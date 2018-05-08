@@ -1,2 +1,6 @@
 asds555
+<<<<<<< HEAD
 add commit on git_SourceTree
+=======
+add commit on git_cloneSourceTree
+>>>>>>> 51763aec655dda0bd030c29f8cbcf45cadacdf53

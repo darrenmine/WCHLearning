@@ -1,0 +1,79 @@
+git config --global user.name xx
+git config --global user.email xxx
+git config --help 获取配置文件help的网页
+git help
+git命令敲到一半按回车，可以弹出提示
+git config --global --add user.name xx 添加用户
+git config --get-all user.name
+git config --list --global 获取所有配置信息
+git config --global --unset user.name eoe 删除user.name
+git config --global alias.co checkout 取别名
+git config --global alias.lol "log --oneline" 取别名参数配置
+git log --oneline --decorate --graph --all 绘制tree图
+vim _dirName
+按qsc,在按:,然后输入wq
+clear 清除command
+git init _dirName
+git init --bare _dirName裸仓库文件名 不带工作区
+mkdir _dirName
+rmdir _dirName 删除文件夹
+rm _fileName 删除文件
+touch _fileName
+git add _fileName
+git add .  git add -A
+git status
+git clone _dirName _newDirName
+git rm _fileName 删除文件和暂存区文件
+git rm --cached _fileName 仅删除暂存区文件
+git mv _fileName _newFileName 重命名文件
+mv _fileName _newFileName 重命名文件
+git reset head _fileName 重置缓存头信息
+vim .gitignore 创建ignore文件
+*.[oa]
+!test.pyc 不包括test.pyc文件
+git commit -m "add ignore" 提交文件
+git branch _branchName 建立分支
+git checkout _branchName checkout该分支最新的commit
+git tag "_tagName" _sha1Number 
+git tag -a "_tagMessage" _sha1Number
+git show _tagName
+git checkout -b new_branch_name
+git stash save -a "_stashMessage"
+git stash list 
+git stash pop --index stash@{0}会清除stash{0}
+git stash apply --index stash@{0} 不会清除stash{0}
+git stash drop stash!{0}清除stash{0}记录
+git stash clear
+.gitignore 需要在文件还没有加入暂存的时候加进去才有用
+5.Git 本地分支与合并
+git checkout -b test_merge
+git merge test_merge
+fast-farword merge
+non-fasr-farword merge
+
+6.查看与对比历史记录
+git diff 
+git show 
+git diff --cashed 工作区与暂存区差别
+git merge test
+fast-forward merge 直接合并
+non fast-forward merge 会产生自动合并，需要手动解决conflict
+git merge --abort
+git rebase --abort
+git rebase --continue
+7.
+git checkout --master.txt 用当前暂存区内容还原工作区
+git reset master.txt 用当前历史提交内容还原暂存区
+git tag "v0" _sha1Number  HEAD表示当前提交 HEAD~表示当前前一个提交
+git checkout v0 --master.txt 用tagv0还原暂存区和工作区内容
+git reset v0 --master.txt 用tagv0只还原暂存区内容
+git reflog 显示head记录
+3个都会head和分支引用还原到指定提交 对应共享操作不要这样搞，要不然会很困惑，可以替换使用revert
+git reset --hard v0 暂存区和工作区被历史指定提交还原
+git reset --mix v0 还原暂存区 （默认加--mixed）
+git reset --soft 不操作
+git clean -n 显示将会clean的文件
+git clean -f 清除文件
+git clean -X -n 显示将被清除但在gitignore内
+git clean -X -f
+git revert HEAD　去除掉上一个提交

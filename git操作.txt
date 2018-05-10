@@ -1,3 +1,4 @@
+注释：命令行不区分大小写 -- master 可以省略掉-- head~ 表示的是当前分支 head~0 从0开始 默认是1
 git config --global user.name xx
 git config --global user.email xxx
 git config --help 获取配置文件help的网页
@@ -54,26 +55,34 @@ non-fasr-farword merge
 6.查看与对比历史记录
 git diff 
 git show 
-git diff --cashed 工作区与暂存区差别
+git diff 暂存区与工作区差别
+git diff --cached 暂存区与历史提交差别
+git diff HEAD~2 -- master.txt 工作区与历史提交区别
+git diff --cached HEAD~2 -- master.txt 暂存区与历史提交区别
+git diff HEAD HEAD~2 -- master.txt 比较两个提交的差异 HEAD~2 表示当前提交前两个提交
 git merge test
 fast-forward merge 直接合并
 non fast-forward merge 会产生自动合并，需要手动解决conflict
 git merge --abort
 git rebase --abort
 git rebase --continue
+
 7.
-git checkout --master.txt 用当前暂存区内容还原工作区
+git checkout -- master.txt 用当前暂存区内容还原工作区
 git reset master.txt 用当前历史提交内容还原暂存区
+git clean -n 显示将会clean的文件
+
+git clean -f 清除文件
+git clean -X -n 显示将被清除但在gitignore内
+git clean -X -f
+git revert HEAD　用一个新的提交覆盖之前一个提交所产生的修改
 git tag "v0" _sha1Number  HEAD表示当前提交 HEAD~表示当前前一个提交
-git checkout v0 --master.txt 用tagv0还原暂存区和工作区内容
-git reset v0 --master.txt 用tagv0只还原暂存区内容
+8.
+git checkout v0 -- master.txt 用tagv0还原暂存区和工作区内容
+git checkout HEAD~ -- master.txt 用上一个提交还原暂存区和工作区内容
+git reset v0 -- master.txt 用tagv0只还原暂存区内容
 git reflog 显示head记录
 3个都会head和分支引用还原到指定提交 对应共享操作不要这样搞，要不然会很困惑，可以替换使用revert
 git reset --hard v0 暂存区和工作区被历史指定提交还原
 git reset --mix v0 还原暂存区 （默认加--mixed）
 git reset --soft 不操作
-git clean -n 显示将会clean的文件
-git clean -f 清除文件
-git clean -X -n 显示将被清除但在gitignore内
-git clean -X -f
-git revert HEAD　去除掉上一个提交

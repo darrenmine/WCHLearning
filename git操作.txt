@@ -86,3 +86,7 @@ git reflog 显示head记录
 git reset --hard v0 暂存区和工作区被历史指定提交还原
 git reset --mix v0 还原暂存区 （默认加--mixed）
 git reset --soft 不操作
+
+
+深入理解 Git 远程操作 
+git lol 显示local master 和remote origin/master 的区别

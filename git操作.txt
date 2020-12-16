@@ -95,3 +95,13 @@ git fetch origin master
 这样操作可以提前对比git diff master origin/master 的差异
 git merge origin/master
 git pull origin master=fetch +merge 或者rebase
+
+参考网址cankaohttps://www.jianshu.com/p/5e7e3a189b7a
+Git 合并某次提交（commit）到指定分支上或合并某个分支上的一系列commits
+比如，feature 分支上的 commit 62ecb3 非常重要，它含有一个 bug 的修改，或其他人想访问的内容。无论什么原因，你现在只需要将 62ecb3 合并到 master，而不合并 feature 上的其他 commits ，所以我们用 git cherry-pick 命令来做：
+git checkout master  
+git cherry-pick 62ecb3 
+
+git 给分支添加描述 管理分支实用方法
+git config branch.H5SDKUseCPBridge.description '这是按照CP方提供的桥接文件制作的东方仙魔诀分支'
+git config --get-regexp branch.*.description 查看所有分支描述
